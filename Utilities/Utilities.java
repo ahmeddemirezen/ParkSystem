@@ -11,7 +11,6 @@ public class Utilities {
     public static float profit;
 
     public static void AddVehicle() {
-        // todo it cannot call at this part.
         Vehicle vehicle = new Vehicle();
 
         vehicle.id = Vehicle.TotalVehicleCount();
@@ -24,17 +23,21 @@ public class Utilities {
         System.out.print("Enter vehicle type\nSMALL:0\nMEDIUM:1\nLARGE:2\n---->");
         String vehType = System.console().readLine();
 
-        if (vehType.equals("0")) {
-            vehicle.type = Vehicle.VehicleType.SMALL;
-        } else if (vehType.equals("1")) {
-            vehicle.type = Vehicle.VehicleType.MEDIUM;
-        } else if (vehType.equals("2")) {
-            vehicle.type = Vehicle.VehicleType.LARGE;
-        } else {
-            System.out.println("-----------");
-            System.out.println("Wrong type input.");
-            System.out.println("-----------");
-            return;
+        switch (vehType) {
+            case "0":
+                vehicle.type = Vehicle.VehicleType.SMALL;
+                break;
+            case "1":
+                vehicle.type = Vehicle.VehicleType.MEDIUM;
+                break;
+            case "2":
+                vehicle.type = Vehicle.VehicleType.LARGE;
+                break;
+            default:
+                System.out.println("-----------");
+                System.out.println("Wrong type input.");
+                System.out.println("-----------");
+                return;
         }
 
         System.out.println("-----------");
@@ -49,6 +52,7 @@ public class Utilities {
             System.out.println("Vehicle is added successfully");
             System.out.println("-----------");
         } else {
+            Vehicle.DecreaseVehicleCount();
             System.out.println("-----------");
             System.out.println("This vehicle is already assigned.");
             System.out.println("-----------");
@@ -108,9 +112,9 @@ public class Utilities {
 
         if (vehicle != null) {
             System.out.println("-----------");
-            System.out.println("ID:" + vehicle.id + "\nOwner:" + vehicle.owner
-                    + "\nPlate:" + vehicle.plate + "\nType:" + vehicle.type
-                    + "\nEntry Time:" + vehicle.entryTime);
+            System.out.println(
+                    "ID:" + vehicle.id + "\nOwner:" + vehicle.owner + "\nPlate:" + vehicle.plate
+                            + "\nType:" + vehicle.type + "\nEntry Time:" + vehicle.entryTime);
         }
         System.out.println("-----------");
     }

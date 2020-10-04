@@ -22,4 +22,9 @@ public class Vehicle {
     public static int TotalVehicleCount() {
         return vehicleCounter;
     }
+
+    // todo this method will be changed.
+    public static void DecreaseVehicleCount() {
+        vehicleCounter -= 1;
+    }
 }
