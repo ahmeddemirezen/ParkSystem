@@ -27,6 +27,8 @@ public class Main {
                         Utilities.VehicleDetails();
                         break;
                     case "5":
+                        break;
+                    case "6":
                         return;
                     default:
                         System.out.println("\n\nEntered input is out of the range.\n");
